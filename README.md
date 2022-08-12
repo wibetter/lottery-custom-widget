@@ -6,7 +6,7 @@
 - dist: uniapp构建后文件存放目录；
 - preview: 自定义组件web预览模块（发布NPM自定义组件需要）；
 - src/components: 存放自定义组件源码（vue3技术栈）；
-- src/components/info-card/info-card.jsx: 自定义组件内容文件；
+- src/components/uni-lottery-card/uni-lottery-card.vue: 自定义组件内容文件；
 - src/components/info-card/plugin.jsx: 用于注册一个amis-editor插件，注册成功后编辑器左侧组件面板中会展示；
 - src/components/xxx/assets: 存放自定义组件组件静态资源，比如 css、img等，此处存放的静态资源会经过webpack构建；
 - src/pages: uniapp 应用页面，开发uniapp自定义组件时仅用于充当预览展示页；
@@ -73,9 +73,9 @@ $ npm run build2lib
   ...
     "aipage-widgets": [
     {
-      "type": "uni-info-card", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
+      "type": "uni-lottery-card", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
       "framework": "vue3", // 技术栈类型，必填项
-      "description": "信息展示卡片", // 自定义组件描述，在编辑器左侧组件面板作为描述信息展示，必填项
+      "description": "抽奖自定义组件", // 自定义组件描述，在编辑器左侧组件面板作为描述信息展示，必填项
       "entry": "/web/renderer.umd", // 自定义组件入口文件路径，必填项
       "files": [  // 自定义组件依赖资源文件路径，非必填项
         "/web/infoCard.css"
@@ -93,9 +93,9 @@ $ npm run build2lib
       }
     },
     {
-      "framework": "uniapp", // 快应用技术栈类型，必填项
-      "type": "uni-info-card", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
-      "entry": "/src/components/info-card", // 快应用自定义组件根目录
+      "framework": "uniapp", // 技术栈类型，必填项
+      "type": "uni-lottery-card", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
+      "entry": "/src/components/uni-lottery-card", // 自定义组件根目录
     },
     ... // 其他自定义组件
   ],
