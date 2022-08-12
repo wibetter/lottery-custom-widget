@@ -19,7 +19,40 @@ const InfoCardPlugin = {
     componentId: 'uni-lottery-card',
     type: 'element',
     componentProperties: {
-      data: {},
+      data: {
+        prizeList: [
+          {
+            name: 'iPhone13',
+            value: 'iPhone',
+            img: 'https://user-images.githubusercontent.com/11958920/184317722-f7a110f8-0084-4b6b-b49d-309ede05b14a.png',
+          },
+          {
+            name: 'airPods3',
+            value: 'airPods',
+            img: 'https://user-images.githubusercontent.com/11958920/184317817-0d64d28d-20cf-4975-9a07-7a16e70f85bf.png',
+          },
+          {
+            name: '行李箱',
+            value: 'luggage',
+            img: 'https://user-images.githubusercontent.com/11958920/184317875-20c2df50-6901-4364-b3c7-e086bb717a72.png',
+          },
+          {
+            name: '风筒',
+            value: 'dryer',
+            img: 'https://user-images.githubusercontent.com/11958920/184317938-03c2cc33-948d-45e6-8eba-1b473966ea1e.png',
+          },
+          {
+            name: '平行车',
+            value: 'balanceCar',
+            img: 'https://user-images.githubusercontent.com/11958920/184317959-9a38abd1-12da-43fa-b93a-eb3e0fbc1ed1.png',
+          },
+          {
+            name: 'iPad5',
+            value: 'iPad',
+            img: 'https://user-images.githubusercontent.com/11958920/184317974-d0f9d220-b0eb-4596-9e9b-84767dee8b8c.png',
+          },
+        ],
+      },
       style: {},
     },
   },
@@ -34,7 +67,7 @@ const InfoCardPlugin = {
             title: '数据',
             controls: [
               {
-                name: 'data.items',
+                name: 'data.prizeList',
                 type: 'setting-list',
                 label: false,
                 hiddenOn: 'data.bindInfo && data.bindInfo.useDynamicData',

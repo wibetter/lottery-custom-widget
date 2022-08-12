@@ -35,7 +35,7 @@
             :class="{ roll_animation: rollState == 'start' }"
           >
             <div v-for="(item, shaftIndex) in shaft" :key="item.HMSM_id">
-              <image :src="item.img"></image>
+              <img :src="item.img" />
             </div>
           </div>
         </div>
@@ -309,52 +309,53 @@ export default {
 </script>
 <style lang="scss" scoped>
 .shell {
-  width: 630rpx;
-  height: 352rpx;
+  margin: 0 auto;
+  width: 370px;
+  height: 210px;
   background-image: linear-gradient(to right, #6543bc, #754eae);
-  border-radius: 50rpx;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   .l,
   .r {
-    width: 36rpx;
-    height: 260rpx;
+    width: 36px;
+    height: 155px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     .lamp {
-      width: 14rpx;
-      height: 14rpx;
+      width: 14px;
+      height: 14px;
       // box-shadow: 0 0 2px rgba($color: #000000, $alpha: 0.5);
 
       border-radius: 50%;
     }
   }
   .l {
-    padding-left: 10rpx;
+    padding-left: 10px;
   }
   .r {
-    padding-right: 10rpx;
+    padding-right: 10px;
   }
   .c {
-    width: 540rpx;
-    height: 270rpx;
+    width: 321px;
+    height: 160px;
     background-color: #8461e9;
-    border: solid 1rpx #6443b6;
+    border: solid 1px #6443b6;
     // box-shadow: 0 0 2px rgba($color: #000000, $alpha: 0.2);
-    border-radius: 30rpx;
+    border-radius: 30px;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     .HMSM {
-      width: 510rpx;
-      height: 240rpx;
+      width: 303px;
+      height: 142px;
       position: relative;
       .HMSM-display-bg {
         width: 100%;
-        height: 240rpx;
+        height: 142px;
         position: absolute;
         left: 0;
         top: 0;
@@ -363,8 +364,8 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         .box {
-          width: 160rpx;
-          height: 240rpx;
+          width: 95px;
+          height: 142px;
           // background-color: #fff;
           background-image: linear-gradient(
             to top,
@@ -375,10 +376,10 @@ export default {
           border: solid 1px #9d82ea;
           box-sizing: border-box;
           &:first-child {
-            border-radius: 20rpx 0 0 20rpx;
+            border-radius: 20px 0 0 20px;
           }
           &:last-child {
-            border-radius: 0 20rpx 20rpx 0;
+            border-radius: 0 20px 20px 0;
           }
         }
       }
@@ -388,14 +389,14 @@ export default {
         top: 0;
         z-index: 3;
         width: 100%;
-        height: 240rpx;
+        height: 142px;
         overflow: hidden;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        border-radius: 20rpx;
+        border-radius: 20px;
         .HMSM-shaft {
-          width: 160rpx;
+          width: 95px;
           transition-property: none;
           transition-duration: 0s;
 
@@ -404,16 +405,16 @@ export default {
             transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
           }
           > div {
-            width: 160rpx;
-            height: 240rpx;
+            width: 95px;
+            height: 142px;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             background-color: #fff;
-            image {
-              width: 160rpx;
-              height: 240rpx;
+            img {
+              width: 95px;
+              height: 142px;
             }
           }
         }

@@ -3,8 +3,8 @@
     <div class="sm">
       <LotteryMachine ref="LotteryMachine"></LotteryMachine>
     </div>
-    <div class="start" @tap="start">
-      <text>开 始</text>
+    <div class="start" @click="start">
+      <span>开 始</span>
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
         {
           name: 'airPods3',
           value: 'airPods',
-          img: 'https://user-images.githubusercontent.com/11958920/184317817-0d64d28d-20cf-4975-9a07-7a16e70f85bf.png)',
+          img: 'https://user-images.githubusercontent.com/11958920/184317817-0d64d28d-20cf-4975-9a07-7a16e70f85bf.png',
         },
         {
           name: '行李箱',
@@ -90,6 +90,8 @@ export default {
       });
     },
     getResults() {
+      console.log("this.prizeList:",this.prizeList);
+      console.log("this.prizeList1:",this.prizeList[0]);
       // 生成随机的抽奖结果 实际应用应该ajax请求后台，让后台返回开奖结果
       let max = this.prizeList.length - 1;
       let arr = [
@@ -113,17 +115,17 @@ export default {
   flex-direction: column;
   align-items: center;
   .sm {
-    margin-top: 200rpx;
+    margin-top: 100px;
   }
   .start {
     width: 70%;
-    height: 80rpx;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f29c11;
-    border-radius: 40rpx;
-    margin-top: 30rpx;
+    border-radius: 40px;
+    margin-top: 20px;
     box-shadow: 0 1px 2px rgba($color: #51279a, $alpha: 1);
     border-bottom: solid 3px #8d5805;
     box-sizing: border-box;
