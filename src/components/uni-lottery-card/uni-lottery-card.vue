@@ -3,7 +3,7 @@
     <div class="sm">
       <LotteryMachine ref="LotteryMachine"></LotteryMachine>
     </div>
-    <div class="start" @click="start">
+    <div class="start" @tap.stop="startLottery">
       <text class="start-text">开 始</text>
     </div>
   </div>
@@ -79,12 +79,13 @@ export default {
     this.$refs.LotteryMachine.init({
       prizeList: this.prizeList,
       defaultResults: ['iPhone', 'airPods', 'luggage'],
-      duration: 2000,
+      duration: 4000,
       direction: 'up',
     });
   },
   methods: {
-    start() {
+    startLottery() {
+      console.log('startLottery')
       // roll(options)开始摇奖
       // 参数说明
       // results 开奖结果，结构[value,value,value] value为奖品数据的value值
@@ -122,7 +123,7 @@ export default {
   flex-direction: column;
   align-items: center;
   .sm {
-    margin-top: 200rpx;
+    margin-top: 80rpx;
   }
   .start {
     width: 70%;
