@@ -85,7 +85,6 @@ export default {
   },
   methods: {
     startLottery() {
-      console.log('startLottery')
       // roll(options)开始摇奖
       // 参数说明
       // results 开奖结果，结构[value,value,value] value为奖品数据的value值
