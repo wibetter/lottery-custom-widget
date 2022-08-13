@@ -4,7 +4,7 @@
       <LotteryMachine ref="LotteryMachine"></LotteryMachine>
     </div>
     <div class="start" @click="start">
-      <span>开 始</span>
+      <text class="start-text">开 始</text>
     </div>
   </div>
 </template>
@@ -56,7 +56,14 @@ export default {
           this.componentProperties.data.prizeList) ||
         this.defaultPrizeList
       );
-    }
+    },
+    prizeResult() {
+      return (
+        this.componentProperties &&
+          this.componentProperties.data &&
+          this.componentProperties.data.prizeResult
+      );
+    },
   },
   components: {
     // 注册组件
@@ -71,8 +78,8 @@ export default {
     // direction 滚动方向 up|down
     this.$refs.LotteryMachine.init({
       prizeList: this.prizeList,
-      defaultResults: ['iPhone', 'iPhone', 'iPhone'],
-      duration: 4000,
+      defaultResults: ['iPhone', 'airPods', 'luggage'],
+      duration: 2000,
       direction: 'up',
     });
   },
@@ -82,16 +89,16 @@ export default {
       // 参数说明
       // results 开奖结果，结构[value,value,value] value为奖品数据的value值
       // success 开奖回调 e={results} results为开奖结果数据
+      const curResult = this.prizeResult || this.getResults(); // 设置抽奖结果
+      console.log('当前奖品结果：', curResult);
       this.$refs.LotteryMachine.roll({
-        results: this.getResults(),
+        results: curResult,
         success: (e) => {
           console.log('success e: ', e);
         },
       });
     },
     getResults() {
-      console.log("this.prizeList:",this.prizeList);
-      console.log("this.prizeList1:",this.prizeList[0]);
       // 生成随机的抽奖结果 实际应用应该ajax请求后台，让后台返回开奖结果
       let max = this.prizeList.length - 1;
       let arr = [
@@ -115,22 +122,23 @@ export default {
   flex-direction: column;
   align-items: center;
   .sm {
-    margin-top: 100px;
+    margin-top: 200rpx;
   }
   .start {
     width: 70%;
-    height: 35px;
+    height: 80rpx;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f29c11;
-    border-radius: 40px;
-    margin-top: 20px;
+    border-radius: 40rpx;
+    margin-top: 30rpx;
     box-shadow: 0 1px 2px rgba($color: #51279a, $alpha: 1);
     border-bottom: solid 3px #8d5805;
     box-sizing: border-box;
     cursor: pointer;
-    text {
+
+    .start-text {
       font-size: 20px;
       font-weight: bold;
       color: #b51c06;

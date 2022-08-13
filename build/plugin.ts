@@ -37,12 +37,12 @@ const InfoCardPlugin = {
             img: 'https://user-images.githubusercontent.com/11958920/184317875-20c2df50-6901-4364-b3c7-e086bb717a72.png',
           },
           {
-            name: '风筒',
+            name: '吹风机',
             value: 'dryer',
             img: 'https://user-images.githubusercontent.com/11958920/184317938-03c2cc33-948d-45e6-8eba-1b473966ea1e.png',
           },
           {
-            name: '平行车',
+            name: '平衡车',
             value: 'balanceCar',
             img: 'https://user-images.githubusercontent.com/11958920/184317959-9a38abd1-12da-43fa-b93a-eb3e0fbc1ed1.png',
           },
@@ -52,6 +52,7 @@ const InfoCardPlugin = {
             img: 'https://user-images.githubusercontent.com/11958920/184317974-d0f9d220-b0eb-4596-9e9b-84767dee8b8c.png',
           },
         ],
+        prizeResult: ['iPhone', 'airPods', 'luggage']
       },
       style: {},
     },
@@ -69,8 +70,7 @@ const InfoCardPlugin = {
               {
                 name: 'data.prizeList',
                 type: 'setting-list',
-                label: false,
-                hiddenOn: 'data.bindInfo && data.bindInfo.useDynamicData',
+                label: '奖品列表',
                 setting: [
                   {
                     type: 'input-text',
@@ -92,6 +92,19 @@ const InfoCardPlugin = {
                   },
                 ],
               },
+              {
+                name: 'data.prizeResult',
+                label: '抽奖结果',
+                type: "input-array",
+                inline: true,
+                removable: false,
+                draggable: true,
+                items: {
+                  type: "select",
+                  labelField: 'name',
+                  source: "${data.prizeList}"
+                }
+              }
             ],
           },
         ],

@@ -34,9 +34,13 @@
             }"
             :class="{ roll_animation: rollState == 'start' }"
           >
-            <div v-for="(item, shaftIndex) in shaft" :key="item.HMSM_id">
-              <img :src="item.img" />
-            </div>
+            <view
+              class="img-view"
+              v-for="(item, shaftIndex) in shaft"
+              :key="item.HMSM_id"
+            >
+              <img class="image" :src="item.img" />
+            </view>
           </div>
         </div>
       </div>
@@ -100,8 +104,8 @@ export default {
       prizeList,
       // 默认显示奖品
       defaultResults = [],
-      // 滚动延迟 默认500ms
-      delay = 500,
+      // 滚动延迟 默认200ms
+      delay = 200,
       // 滚动时间 从开始滚动到所有滚动结束 默认4000ms
       duration = 4000,
       // 滚动方向
@@ -111,7 +115,7 @@ export default {
       if (typeof delay !== 'number') {
         console.warn('delay参数应该传入整型');
         delay = parseInt(delay);
-        delay = isNaN(delay) ? 500 : delay;
+        delay = isNaN(delay) ? 200 : delay;
       }
       if (typeof duration !== 'number') {
         console.warn('duration参数应该传入整型');
@@ -130,7 +134,6 @@ export default {
       // 校验完毕
 
       this.direction = direction;
-
       // 最低4秒
       if (duration < 4000) {
         duration = 4000;
@@ -162,10 +165,8 @@ export default {
           this.translateY.splice(0, 3, topY, topY, topY);
         }
       }
-      this.$nextTick(function () {
-        this.duration = duration;
-        this.delay = delay;
-      });
+      this.duration = duration;
+      this.delay = delay;
     },
     // 摇奖
     roll({
@@ -196,7 +197,6 @@ export default {
       let res = {
         results: [],
       };
-      console.log('results: ', results);
       for (let i = 0, len = results.length; i < len; i++) {
         if (this.direction == 'up') {
           // 倒序遍历奖品列表，找出开奖结果的最靠后的下标
@@ -309,53 +309,54 @@ export default {
 </script>
 <style lang="scss" scoped>
 .shell {
-  margin: 0 auto;
-  width: 370px;
-  height: 210px;
+  width: 630rpx;
+  height: 352rpx;
   background-image: linear-gradient(to right, #6543bc, #754eae);
-  border-radius: 50px;
+  border-radius: 50rpx;
   display: flex;
   align-items: center;
   .l,
   .r {
-    width: 36px;
-    height: 155px;
+    flex: 0 0 auto;
+    width: 36rpx;
+    height: 260rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     .lamp {
-      width: 14px;
-      height: 14px;
+      width: 14rpx;
+      height: 14rpx;
       // box-shadow: 0 0 2px rgba($color: #000000, $alpha: 0.5);
 
       border-radius: 50%;
     }
   }
   .l {
-    padding-left: 10px;
+    padding-left: 10rpx;
   }
   .r {
-    padding-right: 10px;
+    padding-right: 10rpx;
   }
   .c {
-    width: 321px;
-    height: 160px;
+    flex: 1 1 auto;
+    width: 540rpx;
+    height: 270rpx;
     background-color: #8461e9;
-    border: solid 1px #6443b6;
+    border: solid 1rpx #6443b6;
     // box-shadow: 0 0 2px rgba($color: #000000, $alpha: 0.2);
-    border-radius: 30px;
+    border-radius: 30rpx;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     .HMSM {
-      width: 303px;
-      height: 142px;
+      width: 510rpx;
+      height: 240rpx;
       position: relative;
       .HMSM-display-bg {
         width: 100%;
-        height: 142px;
+        height: 240rpx;
         position: absolute;
         left: 0;
         top: 0;
@@ -364,8 +365,8 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         .box {
-          width: 95px;
-          height: 142px;
+          width: 160rpx;
+          height: 240rpx;
           // background-color: #fff;
           background-image: linear-gradient(
             to top,
@@ -376,10 +377,10 @@ export default {
           border: solid 1px #9d82ea;
           box-sizing: border-box;
           &:first-child {
-            border-radius: 20px 0 0 20px;
+            border-radius: 20rpx 0 0 20rpx;
           }
           &:last-child {
-            border-radius: 0 20px 20px 0;
+            border-radius: 0 20rpx 20rpx 0;
           }
         }
       }
@@ -389,14 +390,14 @@ export default {
         top: 0;
         z-index: 3;
         width: 100%;
-        height: 142px;
+        height: 240rpx;
         overflow: hidden;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        border-radius: 20px;
+        border-radius: 20rpx;
         .HMSM-shaft {
-          width: 95px;
+          width: 160rpx;
           transition-property: none;
           transition-duration: 0s;
 
@@ -404,17 +405,18 @@ export default {
             transition-property: transform;
             transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
           }
-          > div {
-            width: 95px;
-            height: 142px;
+          > .img-view {
+            width: 160rpx;
+            height: 240rpx;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             background-color: #fff;
-            img {
-              width: 95px;
-              height: 142px;
+
+            .image {
+              width: 160rpx;
+              height: 240rpx;
             }
           }
         }

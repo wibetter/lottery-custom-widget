@@ -52,21 +52,13 @@ $ npm run preview
 $ npm run linkDebug
 ```
 
-4. **build:h5: 构建自定义组件web预览模块**
-> build:h5模式：用于构建发布到 npm 中的文件，默认存放到 web 目录中。
-> 备注: build:h5 构建模式 会将渲染器和自定义插件打包成一个js脚本，不利于拆包（待优化）。
-```bash
-$ npm run build:h5
-```
-
-5. **build2lib: 构建自定义组件web预览模块**
+4. **build2lib: 构建自定义组件web预览模块**
 > build2lib模式：用于构建发布到 npm 中的文件，默认存放到当前 preview 目录中；
-> 备注: 和 build:h5 构建模式 功能相同，但需要确保 自定义组件 是纯vue3.0技术栈的组件（不含uniapp内置组件）。
 ```bash
 $ npm run build2lib
 ```
 
-6. **package.json添加自定义组件信息，导入组件扩展包时需要**
+5. **package.json添加自定义组件信息，导入组件扩展包时需要**
 > package.json 中添加 aipage-widgets 字段，用于放置当前自定义组件信息，有这个 aipage-widgets 字段才能被识别为自定义组件扩展包。
 
 ```bash
@@ -88,7 +80,7 @@ $ npm run build2lib
         "sort": 100, // 自定义插件的排序，非必填项
         "device": [ // 自定义组件支持的设备类型，必填项
           "mobile",
-          "quickapp"
+          "app"
         ]
       }
     },
@@ -102,13 +94,13 @@ $ npm run build2lib
   ...
 }
 ```
-7. **发布一个NPM组件扩展包**
+6. **发布一个NPM组件扩展包**
 > 需要确保package.json中的name值唯一，version值不重复。
 ```bash
 $ npm publish
 ```
 
-8. **发布到指定的NPM仓库**
+7. **发布到指定的NPM仓库**
 > 打开NPM配置文件（src/.npmrc），配置为指定仓库地址即可。
 
 ### 配置项说明（amis-widget-cli）
