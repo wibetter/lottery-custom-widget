@@ -81,6 +81,13 @@
       "prettier --write"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://git@github.com:wibetter/lottery-custom-widget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wibetter/lottery-custom-widget/issues"
+  },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-alpha-3040820220424001",
     "@dcloudio/uni-app-plus": "3.0.0-alpha-3040820220424001",
