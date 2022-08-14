@@ -4,11 +4,9 @@
 ### 目录说明
 - src: 自定义组件源码；
 - dist: uniapp构建后文件存放目录；
-- preview: 自定义组件web预览模块（发布NPM自定义组件需要）；
+- web: 自定义组件web预览模块（发布NPM自定义组件需要）；
 - src/components: 存放自定义组件源码（vue3技术栈）；
 - src/components/uni-lottery-card/uni-lottery-card.vue: 自定义组件内容文件；
-- src/components/info-card/plugin.jsx: 用于注册一个amis-editor插件，注册成功后编辑器左侧组件面板中会展示；
-- src/components/xxx/assets: 存放自定义组件组件静态资源，比如 css、img等，此处存放的静态资源会经过webpack构建；
 - src/pages: uniapp 应用页面，开发uniapp自定义组件时仅用于充当预览展示页；
 - src/main.ts: uniapp 应用入口文件；
 - src/manifest.ts: uniapp 配置文件（配置应用名称、appid、logo、版本等打包信息）；
@@ -19,9 +17,8 @@
 - vite.config.ts: uniapp 构建配置文件（vite 构建模式）；
 - build: 存放打包&构建入口文件；
 - build/linkDebug.js: 用于本地「linkDebug」调试自定义组件；
-- build/registerPlugin.ts: 自定义组件插件构建入口；
-- build/registerRenderer.ts: 自定义组件渲染器构建入口；
-- build/index.ts: 自定义组件「web预览模块」构建入口（平台预览需要），build:h5 构建模式使用；
+- build/plugin.ts: 自定义组件插件构建入口；
+- build/renderer.ts: 自定义组件渲染器构建入口；
 
 ### 相关开发文档
 - uni-app开发文档：[https://uniapp.dcloud.net.cn/](https://uniapp.dcloud.net.cn/)
@@ -70,12 +67,12 @@ $ npm run build2lib
       "description": "抽奖自定义组件", // 自定义组件描述，在编辑器左侧组件面板作为描述信息展示，必填项
       "entry": "/web/renderer.umd", // 自定义组件入口文件路径，必填项
       "files": [  // 自定义组件依赖资源文件路径，非必填项
-        "/web/infoCard.css"
+        "/web/style.css"
       ],
       "editorPlugin": {  // amis-editor自定义插件信息
         "pluginEntry": "/web/plugin.umd", // 自定义插件的入口文件，必填项
         "tag": [  // 自定义插件的分类，必填项
-          "uni小程序组件"
+          "跨端组件"
         ],
         "sort": 100, // 自定义插件的排序，非必填项
         "device": [ // 自定义组件支持的设备类型，必填项
