@@ -4,7 +4,7 @@
       <LotteryMachine ref="LotteryMachine"></LotteryMachine>
     </div>
     <div class="start" @tap.stop="startLottery">
-      <text class="start-text">开 始</text>
+      <text class="start-text">抽奖</text>
     </div>
   </div>
 </template>
