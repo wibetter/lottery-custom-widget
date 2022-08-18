@@ -51,8 +51,7 @@ export default defineConfig(({ command, mode }) => {
             entry: path.resolve(__dirname, `./build/${ process.env.UNI_BUILD_LIB || 'registerRenderer'}.ts`), // 构建自定组件入口文件
             formats: ['umd'],
             name: process.env.UNI_BUILD_LIB || 'registerRenderer', // 自定义组件名字
-            fileName: (format) => `${process.env.UNI_BUILD_LIB || 'registerRenderer'}.${format}.js`,
-            style: 'renderer'
+            fileName: (format) => `${process.env.UNI_BUILD_LIB || 'registerRenderer'}.${format}.js`
           },
           // cssCodeSplit: false, // https://vitejs.cn/config/#build-csscodesplit
         }

@@ -91,6 +91,7 @@ const InfoCardPlugin = {
                     placeholder: '请输入奖品图片地址',
                   },
                 ],
+                enableDataBinding: true, // 有这个属性则组件会自动开启动态数据绑定
               },
               {
                 name: 'data.prizeResult',
@@ -103,7 +104,8 @@ const InfoCardPlugin = {
                   type: "select",
                   labelField: 'name',
                   source: "${data.prizeList}"
-                }
+                },
+                enableDataBinding: true, // 有这个属性则组件会自动开启动态数据绑定
               }
             ],
           },
