@@ -71,6 +71,8 @@ const InfoCardPlugin = {
                 name: 'data.prizeList',
                 type: 'setting-list',
                 label: '奖品列表',
+                mode: 'normal',
+                fullSize: true,
                 setting: [
                   {
                     type: 'input-text',

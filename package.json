@@ -1,6 +1,6 @@
 {
   "name": "lottery-custom-widget",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "抽奖自定义组件",
   "keywords": [
     "自定义组件",
@@ -106,7 +106,7 @@
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3040820220424001",
     "vue": "^3.2.37",
     "vue-i18n": "^9.1.9",
-    "vue3-aipage-widget": "^1.0.10",
+    "vue3-aipage-widget": "^1.0.13",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
