@@ -102,6 +102,7 @@ const InfoCardPlugin = {
                 inline: true,
                 removable: false,
                 draggable: true,
+                addable: false,
                 items: {
                   type: "select",
                   labelField: 'name',
