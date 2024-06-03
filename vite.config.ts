@@ -39,7 +39,7 @@ export default defineConfig(({ command, mode }) => {
             external: ['react', 'vue'], // 在构建中排除的依赖项
             output: {
               // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-              dir: 'web', // 输出构建后文件的目录
+              dir: `web/${process.env.UNI_BUILD_LIB}`, // 输出构建后文件的目录
               globals: {
                 vue: 'vue',
                 react: 'react'
