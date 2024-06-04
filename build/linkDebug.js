@@ -5,4 +5,3 @@
 import '../web/renderer/style.css';
 import '../web/renderer/renderer.umd.js';
 import '../web/plugin/plugin.umd.js';
- 
